@@ -5,7 +5,6 @@ import { User } from 'src/app/interfaces/User'
 import { UserService } from 'src/app/services/user.service'
 import { STATES } from 'src/app/states'
 import { STATES_CITIES } from 'src/app/state-cities';
-// import { Md5 } from 'md5-typescript'
 import { CryptoService } from 'src/app/services/crypto.service'
 
 

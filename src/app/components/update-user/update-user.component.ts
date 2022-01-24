@@ -18,7 +18,7 @@ export class UpdateUserComponent implements OnInit {
   userUpdate: FormGroup
   user: User | undefined
   currentUserId = 0;
-  typerOfUsersArr: string[] = ['Admnistrador', 'Usuario'];
+  typerOfUsersArr: string[] = ['Admistrador', 'Usuario'];
   states: any = []
   statesCities: any = {}
   listFilter: any | undefined
@@ -68,7 +68,7 @@ export class UpdateUserComponent implements OnInit {
 
   getCurrentUserInfo() {
     this.userService.getUserService(this.currentUserId).subscribe((data) => {
-      console.log(data.data)
+      // console.log(data.data)
       this.user = data.data
       this.userUpdate.patchValue({
         name: data.data.name,
@@ -87,6 +87,10 @@ export class UpdateUserComponent implements OnInit {
   onSelect(state: string) {
     let cities = this.statesCities[state]
     this.listFilter = cities
+  }
+
+  onChange(state: string) {
+    console.log(state)
   }
 
 }

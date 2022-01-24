@@ -63,19 +63,22 @@
                 El <strong>Nombre</strong> es requerido
               </span>
             </div>
+
             <div class="mb-3">
               <label for="typeOfUser" class="form-label">Tipo de usuario</label>
               <select formControlName="typeOfUser" class="form-select" aria-label="Default select example">
-                <option selected>Selecciona</option>
-                <option name="typeOfUser" value="Usuario">Usuario</option>
-                <option name="typeOfUser" value="Administrador">Administrador</option>
+                <option *ngFor="let t of typerOfUsersArr" [value]="t"
+                  [selected]="t === userUpdate.get('typeOfUser')?.value">
+                  {{t}}</option>
               </select>
             </div>
+
             <div class="mb-3">
               <label for="state" class="form-label">Estado</label>
               <select #stateSelected (change)="onSelect(stateSelected.value)" formControlName="state"
                 class="form-select">
-                <option value="state" *ngFor="let state of states" value="{{state}}">{{state}}</option>
+                <option *ngFor="let state of states" value="{{state}}">
+                  {{state}}</option>
               </select>
               <span class="text-danger" *ngIf="userUpdate.get('state')?.invalid && userUpdate.get('state')?.touched">
                 El <strong>Estado</strong> es requerido
@@ -85,7 +88,7 @@
             <div class="mb-3">
               <label for="city" class="form-label">Ciudad</label>
               <select formControlName="city" class="form-select">
-                <option value="city" *ngFor="let city of listFilter" value="{{city}}">{{city}}</option>
+                <option *ngFor="let city of listFilter" value="{{city}}">{{city}}</option>
               </select>
               <span class="text-danger" *ngIf="userUpdate.get('city')?.invalid && userUpdate.get('city')?.touched">
                 La <strong>Ciudad</strong> es requerido

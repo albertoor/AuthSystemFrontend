@@ -17,7 +17,7 @@ export class AuthNormalUserGuard implements CanActivate {
     if (token && !this.jwtHelper.isTokenExpired(token) && tokenUserInfo.TypeOfUser == "Usuario") {
       return true
     }
-    this.router.navigate(["/login-normal-user"])
+    this.router.navigate(["/login"])
     return false
   }
 
