@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-default {
+  background-color:#ff6633;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 12px;
+}
