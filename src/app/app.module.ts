@@ -15,7 +15,10 @@ import { JwtModule } from "@auth0/angular-jwt"
 import { AuthGuard } from './guards/auth.guard'
 import { UsersComponent } from './components/users/users.component'
 import { AddUserComponent } from './components/add-user/add-user.component';
-import { UpdateUserComponent } from './components/update-user/update-user.component'
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { NavbarComponent } from './components/navbar/navbar.component'
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -28,7 +31,10 @@ export function tokenGetter() {
     DashboardComponent,
     UsersComponent,
     AddUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    HomeComponent,
+    LoginUserComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

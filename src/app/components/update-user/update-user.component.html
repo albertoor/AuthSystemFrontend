@@ -9,34 +9,59 @@
               <label for="name" class="form-label">Nombre</label>
               <input formControlName="name" type="text" class="form-control form-control-sm" id="name"
                 autocomplete="off">
+              <span class="text-danger" *ngIf="userUpdate.get('name')?.invalid && userUpdate.get('name')?.touched">
+                El <strong>Nombre</strong> es requerido
+                <br />
+                Min 5 caracters
+              </span>
             </div>
             <div class="mb-3">
               <label for="username" class="form-label">Usuario</label>
               <input formControlName="username" type="text" class="form-control form-control-sm" id="username"
                 autocomplete="off">
+              <span class="text-danger"
+                *ngIf="userUpdate.get('username')?.invalid && userUpdate.get('username')?.touched">
+                El <strong>Usuario</strong> es requerido <br />
+                Min 5 caracters
+              </span>
             </div>
             <div class="mb-3">
               <label for="mail" class="form-label">Correo</label>
               <input formControlName="mail" type="email" class="form-control form-control-sm" id="mail"
                 autocomplete="off">
+              <span class="text-danger" *ngIf="userUpdate.get('mail')?.invalid && userUpdate.get('mail')?.touched">
+                El <strong>Correo</strong> es requerido <br />
+                example@algo.com
+              </span>
             </div>
             <div class="mb-3">
-              <label for="phone" class="form-label">Telefono</label>
-              <input formControlName="phone" type="text" class="form-control form-control-sm" id="phone"
+              <label for="phone" class="form-label">Télefono</label>
+              <input formControlName="phone" maxlength="10" type="text" class="form-control form-control-sm" id="phone"
                 autocomplete="off">
+              <span class="text-danger" *ngIf="userUpdate.get('phone')?.invalid && userUpdate.get('phone')?.touched">
+                El <strong>Telefono</strong> es requerido <br />
+                Min 10 digitos
+              </span>
             </div>
             <div class="mb-3">
-              <label for="address" class="form-label">Direccion</label>
+              <label for="address" class="form-label">Dirección</label>
               <input formControlName="address" type="text" class="form-control form-control-sm" id="address"
                 autocomplete="off">
+              <span class="text-danger"
+                *ngIf="userUpdate.get('address')?.invalid && userUpdate.get('address')?.touched">
+                La <strong>Direccion</strong> es requerida
+              </span>
             </div>
           </div>
 
           <div class="col">
             <div class="mb-3">
-              <label for="postalCode" class="form-label">Codigo Postal</label>
-              <input formControlName="postalCode" type="text" class="form-control form-control-sm" id="postalCode"
-                autocomplete="off">
+              <label for="postalCode" class="form-label">Código Postal</label>
+              <input formControlName="postalCode" maxlength="10" type="text" class="form-control form-control-sm"
+                id="postalCode" autocomplete="off">
+              <span class="text-danger" *ngIf="userUpdate.get('name')?.invalid && userUpdate.get('name')?.touched">
+                El <strong>Nombre</strong> es requerido
+              </span>
             </div>
             <div class="mb-3">
               <label for="typeOfUser" class="form-label">Tipo de usuario</label>
@@ -48,18 +73,23 @@
             </div>
             <div class="mb-3">
               <label for="state" class="form-label">Estado</label>
-              <input formControlName="state" type="text" class="form-control form-control-sm" id="state"
-                autocomplete="off">
+              <select #stateSelected (change)="onSelect(stateSelected.value)" formControlName="state"
+                class="form-select">
+                <option value="state" *ngFor="let state of states" value="{{state}}">{{state}}</option>
+              </select>
+              <span class="text-danger" *ngIf="userUpdate.get('state')?.invalid && userUpdate.get('state')?.touched">
+                El <strong>Estado</strong> es requerido
+              </span>
             </div>
+
             <div class="mb-3">
               <label for="city" class="form-label">Ciudad</label>
-              <input formControlName="city" type="text" class="form-control form-control-sm" id="city"
-                autocomplete="off">
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Contrasena</label>
-              <input formControlName="password" type="password" class="form-control form-control-sm" id="password"
-                autocomplete="off">
+              <select formControlName="city" class="form-select">
+                <option value="city" *ngFor="let city of listFilter" value="{{city}}">{{city}}</option>
+              </select>
+              <span class="text-danger" *ngIf="userUpdate.get('city')?.invalid && userUpdate.get('city')?.touched">
+                La <strong>Ciudad</strong> es requerido
+              </span>
             </div>
           </div>
         </div>

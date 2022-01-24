@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { JwtHelperService } from '@auth0/angular-jwt'
+import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class HomeComponent implements OnInit {
   data: any
 
-  constructor(private jwtHelper: JwtHelperService, private router: Router) {
-  }
+  constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUserCookies()
@@ -34,7 +33,7 @@ export class DashboardComponent implements OnInit {
   public logOut = () => {
     localStorage.removeItem("jwt")
     localStorage.removeItem("userInfo")
-    this.router.navigate(['/loginAdmin'])
+    this.router.navigate(['/login'])
   }
 
 }

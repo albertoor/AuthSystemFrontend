@@ -1,0 +1,21 @@
+<div class="container mx-auto mt-5 mb-5">
+  <div class="jumbotron">
+    <h1 class="display-4">Hola bienvenido <strong>{{data.Name}}</strong> !</h1>
+    <hr class="my-4">
+    <h4>Mis Datos</h4>
+    <ul>
+      <li>Nombre: {{data.Name}}</li>
+      <li>Usuario: {{data.UserName}}</li>
+      <li>Corre: {{data.Mail}}</li>
+      <li>Teléfono: {{data.Phone}}</li>
+      <li>Address: {{data.Address}}</li>
+      <li>Código Postal: {{data.PostalCode}}</li>
+      <li>Tipo de Usuario: {{data.TypeOfUser}}</li>
+      <li>Estado: {{data.State}}</li>
+      <li>Ciudad: {{data.City}}</li>
+    </ul>
+  </div>
+  <ul>
+    <p *ngIf="isUserAuthenticated()"><a class="btn btn-danger" (click)="logOut()">Logout</a></p>
+  </ul>
+</div>

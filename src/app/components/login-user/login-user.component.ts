@@ -1,21 +1,21 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { Router } from '@angular/router'
+import { AuthService } from 'src/app/services/auth.service'
+import { HttpClient } from '@angular/common/http'
+import { CryptoService } from 'src/app/services/crypto.service'
 import { NgForm } from '@angular/forms'
-import { AuthService } from 'src/app/services/auth.service';
-import { CryptoService } from 'src/app/services/crypto.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-user',
+  templateUrl: './login-user.component.html',
+  styleUrls: ['./login-user.component.css']
 })
-export class LoginComponent {
-  invalidLogin: boolean = false;
+export class LoginUserComponent {
+  invalidLogin: boolean = false
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient, private cryptoService: CryptoService) { }
 
-  public login = (form: NgForm) => {
+  public loginAsNormalUser = (form: NgForm) => {
     let encrypt = this.cryptoService.encryption(form.value.password)
 
     const credentials = {
@@ -31,10 +31,9 @@ export class LoginComponent {
       localStorage.setItem("userInfo", JSON.stringify(userObj));
 
       this.invalidLogin = false
-      this.router.navigate(["/dashboard"])
+      this.router.navigate(["/home"])
     }, err => {
       this.invalidLogin = true
     })
-
   }
 }

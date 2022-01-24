@@ -1,18 +1,10 @@
-<h1>Dashboard Page</h1>
-
-<br>
-<div *ngIf="isUserAuthenticated()" style="color:blue;">
-  <h2>
-    YOU ARE LOGGED IN
-  </h2>
-  <h4>{{data.Name}}</h4>
+<div class="container mx-auto mt-5 mb-5">
+  <div class="jumbotron">
+    <h1 class="display-4">Hola, bienvenido <strong>{{data.Name}}</strong> al Panel de Admnistrador</h1>
+    <hr class="my-4">
+  </div>
+  <p *ngIf="isUserAuthenticated()"><a class="btn btn-danger" (click)="logOut()">Cerrar Sesión</a></p>
 </div>
-
-<br>
-<ul>
-  <li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Login</a></li>
-  <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logOut()">Logout</a></li>
-</ul>
 
 <app-users>
 </app-users>
